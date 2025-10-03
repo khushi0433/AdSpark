@@ -1,3 +1,4 @@
+"use client";
 import { useState, FormEvent } from "react";
 import { Mail, Phone, MapPin, Send, ArrowLeft, CheckCircle } from "lucide-react";
 import  Link  from "next/link";
@@ -80,15 +81,20 @@ export default function Contact() {
     <div className="min-h-screen bg-white">
       <Navigation />
 
-      <div className="pt-24 pb-12 bg-gradient-to-br from-[#8E0E00] to-[#FF6B00]">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <Link href="/" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-8">
+      <div className="relative pt-24 pb-12 overflow-hidden">
+        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
+          <source src="/GettyImages-1194277985.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#8E0E00]/80 to-[#FF6B00]/80" />
+        <div className="relative max-w-7xl mx-auto px-6 md:px-10">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-8"
+          >
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
-            Get in Touch
-          </h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">Get in Touch</h1>
           <p className="text-xl text-white/90 max-w-3xl">
             Ready to spark your brand's potential? Let's start a conversation.
           </p>
@@ -136,8 +142,8 @@ export default function Contact() {
                     <p className="font-semibold text-gray-900 mb-1">Visit Us</p>
                     <p className="text-gray-600">
                       123 Innovation Street<br />
-                      Tech District, Manila<br />
-                      Philippines
+                      Tech District, new york<br />
+                      usa
                     </p>
                   </div>
                 </div>
@@ -204,7 +210,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#8E0E00] focus:ring-2 focus:ring-[#8E0E00]/20 outline-none transition-all"
-                    placeholder="John Doe"
+                    placeholder="Your Name"
                   />
                 </div>
 

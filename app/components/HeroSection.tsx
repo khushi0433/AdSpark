@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from "react";
+"use client"
+
+import { useState, useEffect } from "react"
 
 interface HeroSectionProps {
-  onNavClick: (section: string) => void;
+  onNavClick: (section: string) => void
 }
 
 export default function HeroSection({ onNavClick }: HeroSectionProps) {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+      setScrolled(window.scrollY > 50)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const logos = [
     "/94b1819824f74a5d5c97f693cf2e0218b5035f0a.png",
@@ -22,12 +24,17 @@ export default function HeroSection({ onNavClick }: HeroSectionProps) {
     "/d9b70c12e47653a29ef8ecb461b664704388dbb8.png",
     "/59f6a477f20de03767cd7617c6a64055274d700b.png",
     "/5a011c6fb0f4b203e29953e2f4f035e4ba1d394f.png",
-  ];
+  ]
 
   return (
     <section className="relative w-full overflow-hidden">
       <div className="relative w-full min-h-screen">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#8E0E00] via-[#C01F00] to-[#FF6B00]"></div>
+        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
+          <source src="/GettyImages-1194277985.mp4" type="video/mp4" />
+        </video>
+
+        {/* Overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-black/20"></div>
 
         <nav
           className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -35,11 +42,7 @@ export default function HeroSection({ onNavClick }: HeroSectionProps) {
           }`}
         >
           <div className="flex items-center justify-between px-6 py-4 md:px-10">
-            <img
-              src="/adSparkLogo.png"
-              alt="AdSpark Logo"
-              className="h-12 w-auto"
-            />
+            <img src="/adSparkLogo.png" alt="AdSpark Logo" className="h-12 w-auto" />
             <div className="hidden md:flex items-center space-x-8">
               <button
                 onClick={() => onNavClick("about")}
@@ -73,8 +76,8 @@ export default function HeroSection({ onNavClick }: HeroSectionProps) {
               INNOVATE.
             </h1>
             <p className="text-lg md:text-xl max-w-2xl mb-10 leading-relaxed text-white/90">
-              Leveraging MADTECH (Marketing Advertising Technology) and
-              data-driven storytelling to build meaningful connections.
+              Leveraging MADTECH (Marketing Advertising Technology) and data-driven storytelling to build meaningful
+              connections.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button
@@ -93,14 +96,15 @@ export default function HeroSection({ onNavClick }: HeroSectionProps) {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 z-20 w-full bg-black/20 backdrop-blur-sm py-6 overflow-hidden">
+        <div className="absolute bottom-0 left-0 right-0 z-20 w-full py-6 overflow-hidden">
           <div className="flex animate-scroll">
             {[...logos, ...logos, ...logos].map((logo, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 mx-8 flex items-center justify-center"
-              >
-                <img src={logo} alt={`Client ${index}`} className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+              <div key={index} className="flex-shrink-0 mx-8 flex items-center justify-center">
+                <img
+                  src={logo || "/placeholder.svg"}
+                  alt={`Client ${index}`}
+                  className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
+                />
               </div>
             ))}
           </div>
@@ -109,19 +113,13 @@ export default function HeroSection({ onNavClick }: HeroSectionProps) {
 
       <div className="relative w-full h-[70vh] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent z-10"></div>
-        <img
-          src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="Team collaboration"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover object-top">
+          <source src="/People_Technology.mp4" type="video/mp4" />
+        </video>
         <div className="absolute bottom-8 right-8 z-20">
-          <img
-            src="/adSparkLogo.png"
-            alt="AdSpark Logo"
-            className="h-12 w-auto"
-          />
+          <img src="/adSparkLogo.png" alt="AdSpark Logo" className="h-12 w-auto" />
         </div>
       </div>
     </section>
-  );
+  )
 }
