@@ -1,7 +1,7 @@
 # AdSpark - Marketing Agency Website
 
 ## Overview
-AdSpark is a complete multi-page marketing and advertising technology agency website built with React, TypeScript, React Router, Supabase, and Tailwind CSS.
+AdSpark is a complete multi-page marketing and advertising technology agency website built with React 18, Next.js (App Router), TypeScript, Supabase, and Tailwind CSS.
 
 ## Website Purpose
 AdSpark is a MADTECH (Marketing Advertising Technology) agency that helps brands:
@@ -59,10 +59,9 @@ AdSpark is a MADTECH (Marketing Advertising Technology) agency that helps brands
 
 ### Frontend Stack
 - **React 18** with TypeScript
-- **React Router DOM** for multi-page routing
+- **Next.js 15 App Router** for multi-page routing
 - **Tailwind CSS** for styling
 - **Lucide React** for icons
-- **Vite** for build tooling
 - Pure CSS animations (no external carousel libraries)
 
 ### Backend Stack
@@ -103,20 +102,20 @@ AdSpark is a MADTECH (Marketing Advertising Technology) agency that helps brands
 - Auto-clear form on success
 
 ### Performance
-- Optimized images from Pexels
+- Optimized images and videos from Pexels and GettyImages
 - CSS animations for smooth UX
 - Efficient routing with code splitting
 - Fast build times with Vite
 
 ## Project Structure
 ```
-src/
+app/
 ├── components/
 │   ├── HeroSection.tsx
 │   ├── Navigation.tsx
-│   ├── PortfolioSection.jsx
-│   ├── TestimonialsSection.jsx
-│   └── Footer.jsx
+│   ├── PortfolioSection.tsx
+│   ├── TestimonialsSection.tsx
+│   └── Footer.tsx
 ├── pages/
 │   ├── Home.tsx
 │   ├── About.tsx
@@ -124,23 +123,21 @@ src/
 │   └── Contact.tsx
 ├── lib/
 │   └── supabase.ts
-├── App.tsx
-└── main.tsx
-
-supabase/
-└── migrations/
-    └── 20250102000000_create_contact_submissions.sql
+├── layout.tsx
+├── page.tsx
+└── styles/
+    └── global.css
 ```
 
 ## Setup Instructions
 
 1. **Install Dependencies**: `npm install`
-2. **Apply Database Migration**: See `DATABASE_SETUP.md` for instructions
+2. **Apply Database Migration**: See `database-setup-guide.md` for instructions
 3. **Run Development**: `npm run dev`
 4. **Build for Production**: `npm run build`
 
 ## Environment Variables
-- `VITE_SUPABASE_URL`: Your Supabase project URL
-- `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
+- `NEXT_PUBLIC_SUPABASE_URL`: Your Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Your Supabase anonymous key
 
 Both are already configured in the `.env` file.
