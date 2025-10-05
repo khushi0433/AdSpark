@@ -13,7 +13,6 @@ interface FormData {
   service: string;
   message: string;
 }
-
 export default function Contact() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -23,7 +22,6 @@ export default function Contact() {
     service: "",
     message: "",
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -32,7 +30,6 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
-
     try {
       const { error: submitError } = await supabase
         .from("contact_submissions")
@@ -46,9 +43,7 @@ export default function Contact() {
             message: formData.message,
           },
         ]);
-
       if (submitError) throw submitError;
-
       setIsSuccess(true);
       setFormData({
         name: "",
@@ -67,8 +62,7 @@ export default function Contact() {
       setIsSubmitting(false);
     }
   };
-
-  const handleChange = (
+const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData({
@@ -76,31 +70,21 @@ export default function Contact() {
       [e.target.name]: e.target.value,
     });
   };
-
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-
       <div className="relative pt-24 pb-12 overflow-hidden">
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="/GettyImages-1194277985.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-br from-[#8E0E00]/80 to-[#FF6B00]/80" />
         <div className="relative max-w-7xl mx-auto px-6 md:px-10">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">Get in Touch</h1>
           <p className="text-xl text-white/90 max-w-3xl">
             Ready to spark your brand's potential? Let's start a conversation.
           </p>
         </div>
       </div>
-
       <section className="py-20 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="grid md:grid-cols-2 gap-12">
@@ -108,7 +92,6 @@ export default function Contact() {
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
                 Let's Create Something Amazing
               </h2>
-
               <div className="space-y-6 mb-10">
                 <div className="flex items-start gap-4">
                   <div className="bg-gradient-to-br from-[#8E0E00] to-[#FF6B00] w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -121,7 +104,6 @@ export default function Contact() {
                     </a>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4">
                   <div className="bg-gradient-to-br from-[#8E0E00] to-[#FF6B00] w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Phone className="w-6 h-6 text-white" />
@@ -133,7 +115,6 @@ export default function Contact() {
                     </a>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4">
                   <div className="bg-gradient-to-br from-[#8E0E00] to-[#FF6B00] w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-6 h-6 text-white" />
@@ -148,7 +129,6 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-[#8E0E00] to-[#FF6B00] rounded-2xl p-8 text-white">
                 <h3 className="text-xl font-bold mb-3">Business Hours</h3>
                 <div className="space-y-2 text-white/90">
@@ -157,7 +137,6 @@ export default function Contact() {
                   <p>Sunday: Closed</p>
                 </div>
               </div>
-
               <div className="mt-8 bg-gray-50 rounded-2xl p-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   What to Expect
@@ -182,7 +161,6 @@ export default function Contact() {
                 </ul>
               </div>
             </div>
-
             <div>
               {isSuccess && (
                 <div className="mb-6 bg-green-50 border border-green-200 text-green-800 px-6 py-4 rounded-lg flex items-center gap-3">
@@ -190,13 +168,11 @@ export default function Contact() {
                   <p>Thank you! We'll be in touch soon.</p>
                 </div>
               )}
-
               {error && (
                 <div className="mb-6 bg-red-50 border border-red-200 text-red-800 px-6 py-4 rounded-lg">
                   <p>{error}</p>
                 </div>
               )}
-
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
@@ -213,7 +189,6 @@ export default function Contact() {
                     placeholder="Your Name"
                   />
                 </div>
-
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
                     Email Address *
@@ -245,7 +220,6 @@ export default function Contact() {
                       placeholder="Your Company"
                     />
                   </div>
-
                   <div>
                     <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
                       Phone Number
@@ -261,7 +235,6 @@ export default function Contact() {
                     />
                   </div>
                 </div>
-
                 <div>
                   <label htmlFor="service" className="block text-sm font-semibold text-gray-900 mb-2">
                     Service Interested In
@@ -283,7 +256,6 @@ export default function Contact() {
                     <option value="Other">Other</option>
                   </select>
                 </div>
-
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
                     Message *
@@ -299,7 +271,6 @@ export default function Contact() {
                     placeholder="Tell us about your project..."
                   />
                 </div>
-
                 <button
                   type="submit"
                   disabled={isSubmitting}

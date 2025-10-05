@@ -28,7 +28,6 @@ export default function TestimonialsSection() {
       rating: 5,
     },
   ];
-
   return (
     <section className="py-20 md:py-32 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -40,7 +39,6 @@ export default function TestimonialsSection() {
             Don't just take our word for it—hear from the brands we've helped transform.
           </p>
         </div>
-
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div
@@ -48,13 +46,11 @@ export default function TestimonialsSection() {
               className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
             >
               <Quote className="w-10 h-10 text-[#FF6B00] mb-6" />
-
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-
               <p className="text-gray-700 leading-relaxed mb-6 text-lg">
                 "{testimonial.text}"
               </p>
@@ -75,7 +71,6 @@ export default function TestimonialsSection() {
             </div>
           ))}
         </div>
-
         <div className="mt-20 text-center">
           <div className="inline-flex items-center gap-8 bg-white rounded-2xl shadow-lg p-8">
             <div className="text-center border-r border-gray-200 pr-8">

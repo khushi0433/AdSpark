@@ -60,27 +60,18 @@ export default function About() {
   return (
     <>
       <Navigation />
-
       <div className="relative pt-24 pb-12 overflow-hidden">
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="/GettyImages-1194277985.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-br from-[#8E0E00]/80 to-[#FF6B00]/80" />
         <div className="relative max-w-7xl mx-auto px-6 md:px-10">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">Who We Are</h1>
           <p className="text-xl text-white/90 max-w-3xl">
             A next-generation agency combining creativity, data, and technology
           </p>
         </div>
       </div>
-
       <section className="py-20 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
@@ -132,7 +123,6 @@ export default function About() {
               ))}
             </div>
           </div>
-
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
               Meet Our Team
