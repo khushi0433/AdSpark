@@ -8,6 +8,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onNavClick }: HeroSectionProps) {
   const [scrolled, setScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +17,11 @@ export default function HeroSection({ onNavClick }: HeroSectionProps) {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  const handleNavClick = (section: string) => {
+    onNavClick(section)
+    setMobileMenuOpen(false)
+  }
 
   const logos = [
     "/94b1819824f74a5d5c97f693cf2e0218b5035f0a.png",
@@ -63,7 +69,48 @@ export default function HeroSection({ onNavClick }: HeroSectionProps) {
                 Get in Touch
               </button>
             </div>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+              aria-label="Toggle menu"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {mobileMenuOpen ? <path d="M6 18L18 6M6 6l12 12" /> : <path d="M4 6h16M4 12h16M4 18h16" />}
+              </svg>
+            </button>
           </div>
+          {mobileMenuOpen && (
+            <div className="md:hidden bg-black/95 backdrop-blur-md border-t border-white/10">
+              <div className="flex flex-col space-y-4 px-6 py-6">
+                <button
+                  onClick={() => handleNavClick("about")}
+                  className="text-white hover:text-white/80 transition-colors text-base font-medium text-left"
+                >
+                  Who We Are
+                </button>
+                <button
+                  onClick={() => handleNavClick("services")}
+                  className="text-white hover:text-white/80 transition-colors text-base font-medium text-left"
+                >
+                  The Spark
+                </button>
+                <button
+                  onClick={() => handleNavClick("contact")}
+                  className="bg-white text-black hover:bg-white/90 rounded-full px-6 py-3 text-base font-semibold transition-all text-center"
+                >
+                  Get in Touch
+                </button>
+              </div>
+            </div>
+          )}
         </nav>
 
         <div className="relative z-10 flex flex-col items-start px-6 md:px-10 text-white pt-32 pb-20">
