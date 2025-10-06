@@ -1,4 +1,5 @@
 "use client"
+import Image from 'next/image'
 
 export default function HeroSection() {
 
@@ -14,21 +15,28 @@ export default function HeroSection() {
   return (
     <section className="relative w-full overflow-hidden">
       <div className="relative w-full min-h-screen">
-        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
+        <video autoPlay 
+        loop
+         muted 
+        playsInline 
+        preload="metadata"
+        width={1440}
+        height={883}
+        className="absolute inset-0 w-full h-full object-cover">
           <source src="/GettyImages-1194277985.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/20"></div>
 
         <div className="relative z-10 flex flex-col items-start px-6 md:px-10 text-white pt-32 pb-20">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold leading-tight mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-semibold leading-tight mb-6 tracking-tight">
               REACH.
               <br />
               CAPTIVATE.
               <br />
               INNOVATE.
             </h1>
-            <p className="text-lg md:text-xl max-w-2xl mb-10 leading-relaxed text-white/90">
+            <p className="text-lg md:text-xl max-w-2xl mb-10 leading-relaxed text-white/90 font-mono">
               Leveraging MADTECH (Marketing Advertising Technology) and data-driven storytelling to build meaningful
               connections.
             </p>
@@ -51,10 +59,13 @@ export default function HeroSection() {
           <div className="flex animate-scroll">
             {[...logos, ...logos, ...logos].map((logo, index) => (
               <div key={index} className="flex-shrink-0 mx-8 flex items-center justify-center">
-                <img
+                <Image
                   src={logo || "/placeholder.svg"}
-                  alt={`Client ${index}`}
+                  alt={`Partner logo ${index + 1}`}
+                  width={100}
+                  height={40}
                   className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -64,11 +75,11 @@ export default function HeroSection() {
 
       <div className="relative w-full h-[70vh] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent z-10"></div>
-        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover object-top">
+        <video autoPlay loop muted playsInline preload="metadata" width={1280} height={700} className="absolute inset-0 w-full h-full object-cover object-top">
           <source src="/People_Technology.mp4" type="video/mp4" />
         </video>
         <div className="absolute bottom-8 right-8 z-20">
-          <img src="/adSparkLogo.png" alt="AdSpark Logo" className="h-12 w-auto" />
+          <Image src="/adSparkLogo.png" alt="AdSpark Logo" width={48} height={16} className="h-12 w-auto" priority />
         </div>
       </div>
     </section>

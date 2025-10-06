@@ -1,5 +1,6 @@
 import React from "react";
 import { Star, Quote } from "lucide-react";
+import Image from 'next/image';
 
 export default function TestimonialsSection() {
   const testimonials = [
@@ -56,10 +57,13 @@ export default function TestimonialsSection() {
               </p>
 
               <div className="flex items-center gap-4">
-                <img
+                <Image
                   src={testimonial.image}
                   alt={testimonial.name}
+                  width={56}
+                  height={56}
                   className="w-14 h-14 rounded-full object-cover"
+                  loading="lazy"
                 />
                 <div>
                   <p className="font-bold text-gray-900">{testimonial.name}</p>

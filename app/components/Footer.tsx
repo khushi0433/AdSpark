@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image';
 import { Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
 
 export default function Footer() {
@@ -32,14 +33,14 @@ export default function Footer() {
   ];
   return (
     <footer className="relative text-white overflow-hidden">
-      <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
+      <video autoPlay loop muted playsInline preload="metadata" width={1280} height={720} className="absolute inset-0 w-full h-full object-cover">
         <source src="/5408342_Coll_wavebreak_Purple_1280x720.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/60 z-10"></div>
       <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-10 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           <div className="lg:col-span-2">
-            <img src="/adSparkLogo.png" alt="AdSpark Logo" className="h-12 w-auto mb-6" />
+            <Image src="/adSparkLogo.png" alt="AdSpark Logo" width={48} height={16} className="h-12 w-auto mb-6" priority />
             <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
               Igniting meaningful connections between brands and audiences through innovative MADTECH solutions and
               data-driven storytelling.

@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from 'next/image';
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 
@@ -17,12 +18,12 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-transparent" : "bg-transparent"
+        scrolled ? "bg-transparent bg-gradient-to-br from-[#8E0E00]/90 to-[#FF6B00]/80" : "bg-transparent"
       }`}
     >
       <div className="flex items-center justify-between px-6 py-4 md:px-10">
         <Link href="/">
-          <img src="/adSparkLogo.png" alt="AdSpark Logo" className="h-12 w-auto" />
+          <Image src="/adSparkLogo.png" alt="AdSpark Logo" width={100} height={48} className="h-12 w-auto" priority />
         </Link>
         <div className="hidden md:flex items-center space-x-8">
           <Link

@@ -1,5 +1,7 @@
 import React from "react";
+import Image from 'next/image';
 import { ExternalLink } from "lucide-react";
+import { href } from "react-router-dom";
 
 export default function PortfolioSection() {
   const projects = [
@@ -50,10 +52,12 @@ export default function PortfolioSection() {
               className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
             >
               <div className="relative h-80 overflow-hidden">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
               </div>
@@ -69,7 +73,7 @@ export default function PortfolioSection() {
                 <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
                 <p className="text-white/90 mb-4">{project.description}</p>
                 <button className="flex items-center gap-2 text-white hover:text-white/80 transition-colors font-medium">
-                  View Case Study <ExternalLink className="w-4 h-4" />
+                  View Case Study
                 </button>
               </div>
             </div>
