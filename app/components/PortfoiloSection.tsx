@@ -9,28 +9,28 @@ export default function PortfolioSection() {
       title: "Globe Telecom",
       category: "Digital Campaign",
       description: "Multi-channel awareness campaign reaching 5M+ users",
-      image: "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600",
       stats: "300% ROI",
     },
     {
       title: "Arena Plus",
       category: "Brand Launch",
       description: "Complete brand identity and go-to-market strategy",
-      image: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=600",
       stats: "1M+ Downloads",
     },
     {
       title: "Sports Plus",
       category: "Content Strategy",
       description: "Social media content strategy and community growth",
-      image: "https://images.pexels.com/photos/3183165/pexels-photo-3183165.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/3183165/pexels-photo-3183165.jpeg?auto=compress&cs=tinysrgb&w=600",
       stats: "500K Followers",
     },
     {
       title: "RC Cola",
       category: "Influencer Campaign",
       description: "Youth-focused influencer marketing campaign",
-      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
       stats: "10M+ Reach",
     },
   ];
@@ -56,6 +56,7 @@ export default function PortfolioSection() {
                   src={project.image}
                   alt={project.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />

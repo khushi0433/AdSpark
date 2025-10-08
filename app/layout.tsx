@@ -1,8 +1,6 @@
+"use client"
+
 import React from "react";
-import Navigation from "./components/Navigation";
-import HeroSection from "./components/HeroSection";
-import PortfolioSection from "./components/PortfoiloSection";
-import TestimonialsSection from "./components/TestimonialsSection";
 import Footer from "./components/Footer";
 import "./styles/global.css"
 
@@ -19,7 +17,6 @@ export default function RootLayout({
                 <link rel="icon" href="/favicon.ico" />
             </head>
             <body>
-                <Navigation />
                 {children}
                 <Footer />
             </body>

@@ -1,8 +1,11 @@
 "use client"
 import Image from 'next/image'
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  onNavClick: (section: string) => void;
+}
 
+export default function HeroSection({ onNavClick }: HeroSectionProps) {
   const logos = [
     "/94b1819824f74a5d5c97f693cf2e0218b5035f0a.png",
     "/727c78cd2878d58172050443bfc3c8392ca0629c.png",
@@ -42,11 +45,13 @@ export default function HeroSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button
+                onClick={() => onNavClick("services")}
                 className="bg-white text-black hover:bg-white/90 rounded-full px-8 py-4 font-bold text-base transition-all hover:scale-105 hover:shadow-xl"
               >
                 Spark With Us
               </button>
               <button
+                onClick={() => onNavClick("contact")}
                 className="border-2 border-white text-white hover:bg-white hover:text-black rounded-full px-8 py-4 font-medium text-base transition-all hover:scale-105"
               >
                 Talk to an Expert
